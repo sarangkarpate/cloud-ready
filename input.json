@@ -1,0 +1,26 @@
+{
+	"application" : {
+		"type" : "Personal Productivity",
+		"manualInstallation" : true
+	},
+	"users" : "100-200",
+	"lifecycle" : "Early",
+	"externalDependencies" : {
+		"licensedProducts" : true,
+		"os" : "windows",
+		"database" : "",
+		"multipleDatabases" : false
+	},
+	"technicalAspects" : {
+		"resources" : "Shared",
+		"storage" : "200-300mb",
+		"sessionManagement" : false,
+		"networkArchitecture" : false,
+		"parallelProcessing" : true,
+		"localFileSystem" : false
+	},
+	"cost" : {
+		"budget" : "10000-20000",
+		"geographicalAvailability" : true
+	}
+}
