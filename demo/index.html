@@ -182,7 +182,12 @@
 		<button class="next" type="button" value="Next" onclick="change('question-6','score')"><img src="images/next.png" width="18" height="18" alt=""/>Next</button>
 	</div>
 	
-	<div id="score" class="questions">		
+	<div id="score" class="questions">
+		<div>
+			<canvas id="draw" height="200" width="200"></canvas>
+		</div>
+		<br/>
+		<button type="button" value="Show score" onclick="showPercentage()" id="finalButton"/>Show Score!</button>
 	</div>
 </body>
 </html>
