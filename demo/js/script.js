@@ -1,3 +1,4 @@
+/*	   Called on page load		*/
 $( document ).ready(function() {
 	document.getElementById("question-2").style.display="none";
 	document.getElementById("question-3").style.display="none";
@@ -7,6 +8,7 @@ $( document ).ready(function() {
 	document.getElementById("score").style.display="none";
 });
 
+/* 	For highlighting the selected option	*/
 function changeColor(divObj, question) {
 	if(question === "question-1") {
 		document.getElementById("option-1-1").style.background="#53a7ea";
@@ -30,7 +32,86 @@ function changeColor(divObj, question) {
     divObj.style.background="#cc7565";
 }
 
+/*	For changing questions and storing details in JSON	*/
 function change(currentDivName, newDivName) {
+	
+	if(currentDivName === "question-1") {
+		if(document.getElementById("option-1-1").style.background === "rgb(204, 117, 101)") {
+			input.application.type = "Personal Productivity";
+		} else if(document.getElementById("option-1-2").style.background === "rgb(204, 117, 101)") {
+			input.application.type = "Dependent on other services";
+		} else if(document.getElementById("option-1-3").style.background === "rgb(204, 117, 101)") {
+			input.application.type = "Little/No dependency on other services";
+		} else if(document.getElementById("option-1-4").style.background === "rgb(204, 117, 101)") {
+			input.application.type = "B2B/B2C";
+		} else if(document.getElementById("option-1-5").style.background === "rgb(204, 117, 101)") {
+			input.application.type = "Heavy Computing";
+		} else if(document.getElementById("option-1-6").style.background === "rgb(204, 117, 101)") {
+			input.application.type = "Mission Critical";
+		} else if(document.getElementById("option-1-7").style.background === "rgb(204, 117, 101)") {
+			input.application.type = "Seurity/Regulatory";
+		}
+		if(document.getElementById("r1").checked) {
+			input.application.manualInstallation = true;
+		} else if(document.getElementById("r2").checked) {
+			input.application.manualInstallation = false;
+		}
+	} else if(currentDivName === "question-2") {
+		
+	} else if(currentDivName === "question-3") {
+		if(document.getElementById("option-3-1").style.background === "rgb(204, 117, 101)") {
+			input.lifecycle = "Early";
+		} else if(document.getElementById("option-3-2").style.background === "rgb(204, 117, 101)") {
+			input.lifecycle = "Stable";
+		} else if(document.getElementById("option-3-3").style.background === "rgb(204, 117, 101)") {
+			input.lifecycle = "Near to closure";
+		}
+	} else if(currentDivName === "question-4") {
+		if(document.getElementById("r3").checked) {
+			input.externalDependencies.licensedProducts = true;
+		} else if(document.getElementById("r4").checked) {
+			input.externalDependencies.licensedProducts = false;
+		}
+		input.externalDependencies.os = document.getElementById("os").value;
+		input.externalDependencies.database = document.getElementById("db").value;
+		if(document.getElementById("r5").checked) {
+			input.externalDependencies.multipleDatabases = true;
+		} else if(document.getElementById("r6").checked) {
+			input.externalDependencies.multipleDatabases = false;
+		}
+	} else if(currentDivName === "question-5") {
+		if(document.getElementById("r7").checked) {
+			input.technicalAspects.resources = "Shared";
+		} else if(document.getElementById("r8").checked) {
+			input.technicalAspects.resources = "Dedicated";
+		}
+		if(document.getElementById("r9").checked) {
+			input.technicalAspects.sessionManagement = true;
+		} else if(document.getElementById("r10").checked) {
+			input.technicalAspects.sessionManagement = false;
+		}
+		if(document.getElementById("r11").checked) {
+			input.technicalAspects.networkArchitecture = true;
+		} else if(document.getElementById("r12").checked) {
+			input.technicalAspects.networkArchitecture = false;
+		}
+		if(document.getElementById("r13").checked) {
+			input.technicalAspects.parallelProcessing = true;
+		} else if(document.getElementById("r14").checked) {
+			input.technicalAspects.parallelProcessing = false;
+		}
+		if(document.getElementById("r15").checked) {
+			input.technicalAspects.localFileSystem = true;
+		} else if(document.getElementById("r16").checked) {
+			input.technicalAspects.localFileSystem = false;
+		}
+	} else if(currentDivName === "question-6") {
+		if(document.getElementById("r17").checked) {
+			input.cost.geographicalAvailability = true;
+		} else if(document.getElementById("r18").checked) {
+			input.cost.geographicalAvailability = false;
+		}
+	}
 	
 	var currentDiv = $('#' + currentDivName);
 	var newDiv = $('#' + newDivName);
@@ -90,7 +171,6 @@ function PercentAnimation(ctx, percent) {
     };
 
     this.setLineStyles = function() {
-        //ctx.strokeStyle = 'rgb(232, 222, 63)';
 		ctx.strokeStyle = 'rgb(0, 0, 0)';
         ctx.lineWidth = 10;
     };
@@ -118,7 +198,6 @@ function PercentAnimation(ctx, percent) {
 }
 
 function showPercentage() {
-	//e.preventDefault();
 	var ctx = init();
 	var percentage = 85;
 	var anim = new PercentAnimation(ctx, percentage);
@@ -126,3 +205,27 @@ function showPercentage() {
 	anim.setPercent(percent);
 	anim.startAnimation();
 };
+
+/*		JSON processing			*/
+
+var input = new Object();
+input.application = new Object();
+input.application.type = "";
+input.application.manualInstallation = false;
+input.users = "";
+input.lifecycle = "";
+input.externalDependencies = new Object();
+input.externalDependencies.licensedProducts = false;
+input.externalDependencies.os = "";
+input.externalDependencies.database = "";
+input.externalDependencies.multipleDatabases = false;
+input.technicalAspects = new Object();
+input.technicalAspects.resources = "";
+input.technicalAspects.storage = "";
+input.technicalAspects.sessionManagement = false;
+input.technicalAspects.networkArchitecture = false;
+input.technicalAspects.parallelProcessing = false;
+input.technicalAspects.localFileSystem = false;
+input.cost = new Object();
+input.cost.budget = "";
+input.cost.geographicalAvailability = false;
