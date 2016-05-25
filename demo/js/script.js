@@ -171,8 +171,8 @@ function PercentAnimation(ctx, percent) {
     };
 
     this.setLineStyles = function() {
-		ctx.strokeStyle = 'rgb(0, 0, 0)';
-        ctx.lineWidth = 10;
+		ctx.strokeStyle = 'rgb(0, 128, 128)';
+        ctx.lineWidth = 20;
     };
 
     this.drawAnimation = function() {
@@ -188,7 +188,7 @@ function PercentAnimation(ctx, percent) {
     };
 
     this.drawText = function() {
-        ctx.fillStyle = "#f00";
+        ctx.fillStyle = "#14626c";
         ctx.font = "bold 25px verdana";
         ctx.textBaseline = 'middle';
         ctx.textAlign = 'center';
