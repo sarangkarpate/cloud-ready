@@ -197,12 +197,72 @@ function PercentAnimation(ctx, percent) {
 
 }
 
+function calculatePercentage(){
+	var score = 0;
+	switch(input.application.type) {
+		case "Personal Productivity": score=score+2;
+			break;
+		case "Dependent on other services": score=score+1;
+			break;
+		case "Little/No dependency on other services": score=score+3;
+			break;
+		case "B2B/B2C": score=score+2;
+			break;
+		case "Heavy Computing": score=score+2;
+			break;
+		case "Mission Critical": score=score+1;
+			break;
+		case "Seurity/Regulatory": score=score+1;
+			break;
+	}
+
+	if(input.application.manualInstallation == true)
+		score=score+3;
+	else
+		score=score+1;
+
+	switch(input.lifecycle){ 
+		case "Early": score=score+3;
+			break;
+		case "Stable": score=score+2;
+			break;
+		case "Near to closure": score=score+1;
+			break;
+		}
+
+	if (input.externalDependencies.licensedProducts == true) { score=score+1; }
+	else {score=score+3;}
+
+	if (input.externalDependencies.multipleDatabases == true) {score=score+1; }
+	else {score=score+3;}
+
+	if (input.technicalAspects.resources == "Shared") {score=score+3; }
+	else {score=score+1;}
+
+	if (input.technicalAspects.sessionManagement == true) {score=score+1; }
+	else {score=score+3;}
+
+	if(input.technicalAspects.networkArchitecture == true) {score=score+1; }
+	else {score=score+3;}
+
+	if (input.technicalAspects.parallelProcessing == true) {score=score+3;}
+	else {score=score+1;}
+
+	if (input.technicalAspects.localFileSystem == true) {score=score+1;}
+	else {score=score+3;}
+
+	if (input.cost.geographicalAvailability == true) {score=score+3;}
+	else {score=score+1;}
+
+	return (score * 100 / 33);
+}
+
 function showPercentage() {
 	var ctx = init();
-	var percentage = 85;
+	var percentage = Math.floor(calculatePercentage());
 	var anim = new PercentAnimation(ctx, percentage);
-	var percent = Math.floor(Math.random() * 101);
-	anim.setPercent(percent);
+	//var percent = Math.floor(Math.random() * 101);
+	anim.setPercent(percentage);
 	anim.startAnimation();
 };
 
@@ -229,3 +289,4 @@ input.technicalAspects.localFileSystem = false;
 input.cost = new Object();
 input.cost.budget = "";
 input.cost.geographicalAvailability = false;
+
