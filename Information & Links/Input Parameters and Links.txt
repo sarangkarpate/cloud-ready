@@ -97,3 +97,10 @@ http://www.biztechmagazine.com/article/2014/01/determining-which-apps-are-cloud-
 http://www.informationweek.com/software/moving-legacy-apps-to-the-cloud/d/d-id/1108964?
 http://searchtelecom.techtarget.com/feature/Cloud-application-architectures-When-to-redesign-an-app-for-the-cloud
 http://www.networkworld.com/article/2172168/tech-primers/how-to-determine-if-your-application-is-suitable-for-the-cloud.html
+
+
+Choosing the best public cloud providers
+http://www.cmswire.com/information-management/choosing-the-best-public-cloud-provider/
+
+Choosing Private cloud providers
+http://www.tomsitpro.com/articles/private-cloud-providers-comparison,2-899.html
