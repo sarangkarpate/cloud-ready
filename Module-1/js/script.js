@@ -263,6 +263,27 @@ function calculatePercentage(){
 	return (score * 100 / 1700);
 }
 
+function initText(percentage) {
+	this.percent = percentage;
+	var div = document.getElementById('result');
+	var div2 = document.getElementById('analysis');
+
+	if(this.percent < 31) {
+    		div.innerHTML = "Cloud-Ready score is Low. Your Application is Cloud Averse";
+    		div.style.color = "red";
+    		div2.innerHTML = "Moving / Building your application on a cloud platform is not very feasible. Please consider other options";
+    	} else if(this.percent < 70) {
+    		div.innerHTML = "Cloud-Ready score is Medium. Your Application is Cloud Neutral";
+    		div.style.color = "amber";
+    		div2.innerHTML = "The pros of moving / developing your application to the Cloud are comparable if not more than the cons."
+    	} else {
+			div.innerHTML = "Cloud-Ready score is High. Your Application is Cloud Ready";
+    		div.style.color = "green";
+    		div2.innerHTML = "Your application is ideal for a Cloud Platform";
+    	}
+}
+
+
 function showPercentage() {
 	var ctx = init();
 	//var percentage = Math.floor(calculatePercentage());	
@@ -271,7 +292,10 @@ function showPercentage() {
 	var anim = new PercentAnimation(ctx, percentage);
 	anim.setPercent(percentage);
 	anim.startAnimation();
+
+	var s = initText(percentage);
 };
+
 
 /*		JSON processing			*/
 
