@@ -270,14 +270,19 @@ function showPercentage() {
 
 var input = new Object();
 input.application = new Object();
-input.application.type = "";
+input.application.domain = "";
+input.application.dependency = "";
+input.application.B2BorB2C = "";
+input.application.computing = "";
+input.application.missionCritical = false;
+input.application.regulatoryRestriction = false;
+input.application.security = "";
 input.application.manualInstallation = false;
 input.users = "";
 input.lifecycle = "";
 input.externalDependencies = new Object();
 input.externalDependencies.licensedProducts = false;
 input.externalDependencies.os = "";
-input.externalDependencies.database = "";
 input.externalDependencies.multipleDatabases = false;
 input.technicalAspects = new Object();
 input.technicalAspects.resources = "";
@@ -289,4 +294,10 @@ input.technicalAspects.localFileSystem = false;
 input.cost = new Object();
 input.cost.budget = "";
 input.cost.geographicalAvailability = false;
+input.priority = new Object();
+input.priority.technologicalOptimizations = 0;
+input.priority.cost = 0;
+input.priority.easeOfIntegration = 0;
+input.priority.popularCloudTechnology = 0;
+input.priority.security = 0;
 
