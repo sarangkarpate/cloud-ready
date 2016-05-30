@@ -197,64 +197,63 @@ function PercentAnimation(ctx, percent) {
 
 }
 
+/*------------COMPUTATION PHASE------------*/
+
+/* KEY:
+	ALPHA means CR score calculation
+	BETA means Offering (includes IaaS, PaaS, SaaS)
+	GAMMA means Public / Private / Hybrid
+*/
+
+function assignScoreOnPriority(inputText) {
+	switch(inputText){ 
+		case "Low": return 1;
+			break;
+		case "Medium": return 5;
+			break;
+		case "High": return 10;
+			break;
+		case false: return 10;	//Note generalizing this because normally for the given questions False is equating to cloud-friendly: MAY NEED TO CHANGE THIS LATER / CONFIRM****
+			break;
+		case true: return 1;
+			break;
+		}
+}
+
+function assignScoreOnScalePriority(inputUsers) {
+if(users < 1000)
+	return 1;
+else if (users < 10000)
+	return 5;
+else 
+	return 10;
+}
+
 function calculatePercentage(){
+	// Alpha Calculation
 	var score = 0;
-	switch(input.application.type) {
-		case "Personal Productivity": score=score+2;
+	switch(input.application.domain) {
+		case "Banking": score=score+5;
 			break;
-		case "Dependent on other services": score=score+1;
+		case "Medical": score=score+5;
 			break;
-		case "Little/No dependency on other services": score=score+3;
+		case "Defence": score=score+1;
 			break;
-		case "B2B/B2C": score=score+2;
+		case "E-Commerce": score=score+10;
 			break;
-		case "Heavy Computing": score=score+2;
+		case "Social Media": score=score+10;
 			break;
-		case "Mission Critical": score=score+1;
+		case "Education": score=score+10;
 			break;
-		case "Seurity/Regulatory": score=score+1;
+		case "Messaging Platform": score=score+10;
+			break;
+		case "Technological": score=score+10;
 			break;
 	}
 
-	if(input.application.manualInstallation == true)
-		score=score+3;
-	else
-		score=score+1;
+	score = score + assignScoreOnPriority(input.application.dependency) + assignScoreOnPriority(input.application.computing) + assignScoreOnPriority(input.application.missionCritical) + assignScoreOnPriority(input.application.regulatoryRestriction) + assignScoreOnPriority(input.application.security) + assignScoreOnPriority(input.application.manualInstallation) + assignScoreOnScalePriority(input.users) + assignScoreOnPriority(input.lifecycle) + assignScoreOnPriority(input.externalDependencies.licensedProducts) + assignScoreOnPriority(input.externalDependencies.multipleDatabases) + assignScoreOnPriority(input.technicalAspects.resources) + assignScoreOnPriority(input.technicalAspects.sessionManagement) + assignScoreOnPriority(input.technicalAspects.networkArchitecture) + assignScoreOnPriority(input.technicalAspects.parallelProcessing) + assignScoreOnPriority(input.technicalAspects.localFileSystem) + assignScoreOnPriority(input.cost.geographicalAvailability);
 
-	switch(input.lifecycle){ 
-		case "Early": score=score+3;
-			break;
-		case "Stable": score=score+2;
-			break;
-		case "Near to closure": score=score+1;
-			break;
-		}
-
-	if (input.externalDependencies.licensedProducts == true) { score=score+1; }
-	else {score=score+3;}
-
-	if (input.externalDependencies.multipleDatabases == true) {score=score+1; }
-	else {score=score+3;}
-
-	if (input.technicalAspects.resources == "Shared") {score=score+3; }
-	else {score=score+1;}
-
-	if (input.technicalAspects.sessionManagement == true) {score=score+1; }
-	else {score=score+3;}
-
-	if(input.technicalAspects.networkArchitecture == true) {score=score+1; }
-	else {score=score+3;}
-
-	if (input.technicalAspects.parallelProcessing == true) {score=score+3;}
-	else {score=score+1;}
-
-	if (input.technicalAspects.localFileSystem == true) {score=score+1;}
-	else {score=score+3;}
-
-	if (input.cost.geographicalAvailability == true) {score=score+3;}
-	else {score=score+1;}
-
-	return (score * 100 / 33);
+	return (score * 100 / 1700);
 }
 
 function showPercentage() {
@@ -270,8 +269,8 @@ function showPercentage() {
 
 var input = new Object();
 input.application = new Object();
-input.application.domain = "";
-input.application.dependency = "";
+input.application.domain = "";	//Please refer switch case in the function above for setting this appropriately
+input.application.dependency = "";   //Set this on input (STOI) to LOW / MEDIUM / HIGH
 input.application.B2BorB2C = "";
 input.application.computing = "";
 input.application.missionCritical = false;
@@ -279,18 +278,19 @@ input.application.regulatoryRestriction = false;
 input.application.security = "";
 input.application.manualInstallation = false;
 input.users = "";
-input.lifecycle = "";
+input.lifecycle = "";				// STOI
 input.externalDependencies = new Object();
 input.externalDependencies.licensedProducts = false;
 input.externalDependencies.os = "";
 input.externalDependencies.multipleDatabases = false;
 input.technicalAspects = new Object();
-input.technicalAspects.resources = "";
+input.technicalAspects.resources = "";	//STOI
 input.technicalAspects.storage = "";
 input.technicalAspects.sessionManagement = false;
 input.technicalAspects.networkArchitecture = false;
 input.technicalAspects.parallelProcessing = false;
 input.technicalAspects.localFileSystem = false;
+input.technicalAspects.userScalibility = ""; 
 input.cost = new Object();
 input.cost.budget = "";
 input.cost.geographicalAvailability = false;
@@ -301,3 +301,8 @@ input.priority.easeOfIntegration = 0;
 input.priority.popularCloudTechnology = 0;
 input.priority.security = 0;
 
+/*----Output JSON Parameters----*/
+var output = new Object();
+output.Alpha
+output.Beta
+output.Gamma
