@@ -1,9 +1,0 @@
-1) Which would most accurately describe the domain of your application? (List)
-2) What is your location? (List)
-3) What is your budget? (Radio)
-4) What are you estimated storage requirements? (Radio)
-5) What level of Security would you require for your application? (Radio)
-6) Expected number of user of the application? (Radio)
-7) Preferred type of architecture? (Radio)
-
-Note: most radio options will have associated description that will enable easier understanding of the requirements. Ex: hybrid, private cloud - briefly what are they
