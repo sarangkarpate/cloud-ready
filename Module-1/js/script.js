@@ -188,7 +188,14 @@ function PercentAnimation(ctx, percent) {
     };
 
     this.drawText = function() {
-        ctx.fillStyle = "#14626c";
+    	if(this.percent < 31) {
+    		ctx.fillStyle = "#730000";
+    	} else if(this.percent < 70) {
+    		ctx.fillStyle = "#D9A200";
+    	} else {
+			ctx.fillStyle = "#007300";
+    	}
+        //ctx.fillStyle = "#14626c";
         ctx.font = "bold 25px verdana";
         ctx.textBaseline = 'middle';
         ctx.textAlign = 'center';
@@ -258,9 +265,10 @@ function calculatePercentage(){
 
 function showPercentage() {
 	var ctx = init();
-	var percentage = Math.floor(calculatePercentage());
+	//var percentage = Math.floor(calculatePercentage());	
+	var percent = Math.floor(Math.random() * 101);
+	var percentage = Math.floor(percent);
 	var anim = new PercentAnimation(ctx, percentage);
-	//var percent = Math.floor(Math.random() * 101);
 	anim.setPercent(percentage);
 	anim.startAnimation();
 };
