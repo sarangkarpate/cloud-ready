@@ -1,1 +1,5 @@
-
+mongo ds011933.mlab.com:11933/cloud_cruisers -u <dbuser> -p <dbpassword>
+mongodb://<dbuser>:<dbpassword>@ds011933.mlab.com:11933/cloud_cruisers
+User: SayaliGodbole
+pwd: cl0udReady
+database: clouddb
