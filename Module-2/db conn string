@@ -1,0 +1,5 @@
+Get all data using this URL:
+https://api.mlab.com/api/1/databases/cloud_cruisers/collections/RAW_DATA?apiKey=vPoKBtnYZowt4TRavfrZBJeudX667e7X
+
+API reference mannual:
+http://mongodb.github.io/node-mongodb-native/api-generated/
