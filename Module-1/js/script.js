@@ -269,15 +269,15 @@ function initText(percentage) {
 	var div2 = document.getElementById('analysis');
 
 	if(this.percent < 31) {
-    		div.innerHTML = "Cloud-Ready score is Low. Your Application is Cloud Averse";
+    		div.innerHTML = "Cloud-Ready score is <strong>Low</strong>.<br>Your Application is <strong>Cloud Averse</strong>";
     		div.style.color = "red";
     		div2.innerHTML = "Moving / Building your application on a cloud platform is not very feasible. Please consider other options";
     	} else if(this.percent < 70) {
-    		div.innerHTML = "Cloud-Ready score is Medium. Your Application is Cloud Neutral";
-    		div.style.color = "amber";
+    		div.innerHTML = "Cloud-Ready score is <strong>Medium</strong>.<br>Your Application is <strong>Cloud Neutral</strong>";
+    		div.style.color = "#D9A200";
     		div2.innerHTML = "The pros of moving / developing your application to the Cloud are comparable if not more than the cons."
     	} else {
-			div.innerHTML = "Cloud-Ready score is High. Your Application is Cloud Ready";
+			div.innerHTML = "Cloud-Ready score is <strong>High</strong>.<br>Your Application is <strong>Cloud Ready</strong>";
     		div.style.color = "green";
     		div2.innerHTML = "Your application is ideal for a Cloud Platform";
     	}
