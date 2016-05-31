@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home Page</title>
+    <title>Cloud Ready</title>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="shortcut icon" href="img/favicon.ico">
 	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
 	<h1 class="heading">Calculate cloud-readiness of your application!</h1>
-	<div id="question-1" class="questions">
+	<!--<div id="question-1" class="questions">
 		<div class="question">
 			What is the type of your application?
 		</div>
@@ -181,21 +182,21 @@
 		<button class="prev" type="button" value="Previous" onclick="change('question-6','question-5')"><img src="images/previous.png" width="18" height="18" alt=""/>Previous</button>
 		<button class="next" type="button" value="Next" onclick="change('question-6','score')"><img src="images/next.png" width="18" height="18" alt=""/>Next</button>
 	</div>
-	
+	-->
 	<div id="score" class="questions" style="width: 100%;">
-		<div style="float:left; width: 30%">
+		<div style="float:left; width: 30%;">
 			<canvas id="draw" height="200" width="200"></canvas>
-			<br>
-			<div id="result" style="font-family: "Lato", Helvetica, Arial, sans-serif;
-  font-size: 18px;"></div>
-			<br>
-			<div id="analysis"></div>
+			<h6 id="result"></h6>
+			<p id="analysis"></p>
 		</div>
-		   <div style="float:right; border: 3px solid #73AD21; width: 70%; height: 100%;">
+		   <div style="float:right; width: 70%;">
+		   <img src="images/1464681839_cmyk-03.png" alt="some_text">
+		   <br>
+		   <br>
+		   <br>
+		   <br>
 		   <button type="button" value="Show score" onclick="showPercentage()" id="finalButton"/>Show Score!</button>
-		   <br>
-		   <br>
-		   <br>
+		   <br><br>
 		   <br>
 		   <br>
 		   Text analysis
