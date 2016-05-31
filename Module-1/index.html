@@ -4,12 +4,33 @@
     <title>Cloud Ready</title>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/flat-ui.css" />
 	<link rel="shortcut icon" href="img/favicon.ico">
 	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
 	<h1 class="heading">Calculate cloud-readiness of your application!</h1>
-	<!--<div id="question-1" class="questions">
+	<div class="align-center">
+            <ul class="pagination">
+            <!--<li class="previous"><a href="#fakelink" class="fui-arrow-left"></a></li> -->
+              <li class="active"><a href="#fakelink">1</a></li>
+              <li><a href="#fakelink">2</a></li>
+              <li><a href="#fakelink">3</a></li>
+              <li><a href="#fakelink">4</a></li>
+              <li><a href="#fakelink">5</a></li>
+              <li><a href="#fakelink">6</a></li>
+              <li><a href="#fakelink">7</a></li>
+			<!--<li class="next"><a href="#fakelink" class="fui-arrow-right"></a></li> -->
+            </ul>
+    </div> <!-- /pagination -->
+	
+	<div id="slider" class="ui-slider align-center">
+		<div class="ui-slider-segment">1</div>
+		<div class="ui-slider-segment">2</div>
+		<div class="ui-slider-segment">3</div>
+	  </div>
+	
+	<div id="question-1" class="questions">
 		<div class="question">
 			What is the type of your application?
 		</div>
@@ -51,7 +72,7 @@
 			</div>
 			<div class="clear"></div>
 			<br/>
-			<h2>Is manual installation of your application on server required?</h2>
+			<h6>Is manual installation of your application on server required?</h6>
 			<label for="r1">
 				<input type="radio" value="r1" name="manual" id="r1"> <span>Yes</span>
 			</label>
@@ -59,8 +80,8 @@
 				<input type="radio" value="r2" name="manual" id="r2"> <span>No</span>
 			</label>
 		</div>
-		<button class="prev" type="button" value="Previous"><img src="images/previous.png" width="18" height="18" alt=""/>Previous</button>
-		<button class="next" type="button" value="Next" onclick="change('question-1','question-2')"><img src="images/next.png" width="18" height="18" alt=""/>Next</button>
+		<button class="prev btn btn-block btn-lg btn-primary"" type="button" value="Previous"><img src="images/previous.png" width="25" height="25" alt=""/>Previous</button>
+		<button class="next btn btn-block btn-lg btn-primary"" type="button" value="Next" onclick="change('question-1','question-2')"><img src="images/next.png" width="28" height="28" alt=""/>Next</button>
 	</div>
 	
 	
@@ -68,8 +89,8 @@
 		<div class="question">
 			How many users will access the application at a given time?
 		</div>	
-		<button class="prev" type="button" value="Previous" onclick="change('question-2','question-1')"><img src="images/previous.png" width="18" height="18" alt=""/>Previous</button>
-		<button class="next" type="button" value="Next" onclick="change('question-2','question-3')"><img src="images/next.png" width="18" height="18" alt=""/>Next</button>
+		<button class="prev btn btn-block btn-lg btn-primary" type="button" value="Previous" onclick="change('question-2','question-1')"><img src="images/previous.png" width="28" height="28" alt=""/>Previous</button>
+		<button class="next btn btn-block btn-lg btn-primary" type="button" value="Next" onclick="change('question-2','question-3')"><img src="images/next.png" width="28" height="28" alt=""/>Next</button>
 	</div>
 	
 	<div id="question-3" class="questions">
@@ -93,96 +114,96 @@
 				<p class="align-center">Near to closure-<br/>Will be used for a short period of time</p>
 			</div>
 		</div>
-		<button class="prev" type="button" value="Previous" onclick="change('question-3','question-2')"><img src="images/previous.png" width="18" height="18" alt=""/>Previous</button>
-		<button class="next" type="button" value="Next" onclick="change('question-3','question-4')"><img src="images/next.png" width="18" height="18" alt=""/>Next</button>
+		<button class="prev btn btn-block btn-lg btn-primary" type="button" value="Previous" onclick="change('question-3','question-2')"><img src="images/previous.png" width="28" height="28" alt=""/>Previous</button>
+		<button class="next btn btn-block btn-lg btn-primary" type="button" value="Next" onclick="change('question-3','question-4')"><img src="images/next.png" width="28" height="28" alt=""/>Next</button>
 	</div>
 	
 	<div id="question-4" class="questions">
 		<div class="question">
 			Let's discuss the external dependencies for your application!
 		</div>	
-		<h2>a) Are you using any licensed products?</h2>
+		<h6>a) Are you using any licensed products?</h6>
 		<label for="r3">
 			<input type="radio" value="r3" name="licensed" id="r3"> <span>Yes</span>
 		</label>
 		<label for="r4">
 			<input type="radio" value="r4" name="licensed" id="r4"> <span>No</span>
 		</label>
-		<h2>b) Is any particular operating system required?</h2>
+		<h6>b) Is any particular operating system required?</h6>
 		<input type="text" id="os"/>
-		<h2>c) Is any particular database required?</h2>
+		<h6>c) Is any particular database required?</h6>
 		<input type="text" id="db"/>
-		<h2>d) Does your application deal with multiple databases?</h2>
+		<h6>d) Does your application deal with multiple databases?</h6>
 		<label for="r5">
 			<input type="radio" value="r5" name="multiple" id="r5"> <span>Yes</span>
 		</label>
 		<label for="r6">
 			<input type="radio" value="r6" name="multiple" id="r6"> <span>No</span>
 		</label>
-		<button class="prev" type="button" value="Previous" onclick="change('question-4','question-3')"><img src="images/previous.png" width="18" height="18" alt=""/>Previous</button>
-		<button class="next" type="button" value="Next" onclick="change('question-4','question-5')"><img src="images/next.png" width="18" height="18" alt=""/>Next</button>
+		<button class="prev btn btn-block btn-lg btn-primary" type="button" value="Previous" onclick="change('question-4','question-3')"><img src="images/previous.png" width="28" height="28" alt=""/>Previous</button>
+		<button class="next btn btn-block btn-lg btn-primary" type="button" value="Next" onclick="change('question-4','question-5')"><img src="images/next.png" width="28" height="28" alt=""/>Next</button>
 	</div>
 	
 	<div id="question-5" class="questions">
 		<div class="question">
 			Let's discuss some technical aspects!
 		</div>	
-		<h2>a) Type of resources required:</h2>
+		<h6>a) Type of resources required:</h6>
 		<label for="r7">
 			<input type="radio" value="r7" name="resources" id="r7"> <span>Shared</span>
 		</label>
 		<label for="r8">
 			<input type="radio" value="r8" name="resources" id="r8"> <span>Dedicated</span>
 		</label>
-		<h2>b) Estimated storage requirements</h2>
-		<h2>c) Is session management required?</h2>
+		<h6>b) Estimated storage requirements</h6>
+		<h6>c) Is session management required?</h6>
 		<label for="r9">
 			<input type="radio" value="r9" name="session" id="r9"> <span>Yes</span>
 		</label>
 		<label for="r10">
 			<input type="radio" value="r10" name="session" id="r10"> <span>No</span>
 		</label>
-		<h2>d) Does your application use any specific network architecture like fixed IP hosting</h2>
+		<h6>d) Does your application use any specific network architecture like fixed IP hosting</h6>
 		<label for="r11">
 			<input type="radio" value="r11" name="network" id="r11"> <span>Yes</span>
 		</label>
 		<label for="r12">
 			<input type="radio" value="r12" name="network" id="r12"> <span>No</span>
 		</label>
-		<h2>e) Is parallel processing required?</h2>
+		<h6>e) Is parallel processing required?</h6>
 		<label for="r13">
 			<input type="radio" value="r13" name="parallel" id="r13"> <span>Yes</span>
 		</label>
 		<label for="r14">
 			<input type="radio" value="r14" name="parallel" id="r14"> <span>No</span>
 		</label>
-		<h2>f) Does the application use local file system?</h2>
+		<h6>f) Does the application use local file system?</h6>
 		<label for="r15">
 			<input type="radio" value="r15" name="file" id="r15"> <span>Yes</span>
 		</label>
 		<label for="r16">
 			<input type="radio" value="r16" name="file" id="r16"> <span>No</span>
 		</label>
-		<button class="prev" type="button" value="Previous" onclick="change('question-5','question-4')"><img src="images/previous.png" width="18" height="18" alt=""/>Previous</button>
-		<button class="next" type="button" value="Next" onclick="change('question-5','question-6')"><img src="images/next.png" width="18" height="18" alt=""/>Next</button>
+		<button class="prev btn btn-block btn-lg btn-primary" type="button" value="Previous" onclick="change('question-5','question-4')"><img src="images/previous.png" width="28" height="28" alt=""/>Previous</button>
+		<button class="next btn btn-block btn-lg btn-primary" type="button" value="Next" onclick="change('question-5','question-6')"><img src="images/next.png" width="28" height="28" alt=""/>Next</button>
 	</div>
 	
 	<div id="question-6" class="questions">
 		<div class="question">
 			We're almost done! One major aspect remaining: COST
 		</div>	
-		<h2>a) What is your budget?</h2>
-		<h2>b) Is geographical availability required?</h2>
+		<h6>a) What is your budget?</h6>
+		<h6>b) Is geographical availability required?</h6>
 		<label for="r17">
 			<input type="radio" value="r17" name="geo" id="r17"> <span>Yes</span>
 		</label>
 		<label for="r18">
 			<input type="radio" value="r18" name="geo" id="r18"> <span>No</span>
 		</label>
-		<button class="prev" type="button" value="Previous" onclick="change('question-6','question-5')"><img src="images/previous.png" width="18" height="18" alt=""/>Previous</button>
-		<button class="next" type="button" value="Next" onclick="change('question-6','score')"><img src="images/next.png" width="18" height="18" alt=""/>Next</button>
+		<button class="prev btn btn-block btn-lg btn-primary" type="button" value="Previous" onclick="change('question-6','question-5')"><img src="images/previous.png" width="28" height="28" alt=""/>Previous</button>
+		<button class="next btn btn-block btn-lg btn-primary" type="button" value="Next" onclick="change('question-6','score')"><img src="images/next.png" width="28" height="28" alt=""/>Next</button>
 	</div>
-	-->
+	
 	<div id="score" class="questions" style="width: 100%;">
 		<div style="float:left; width: 30%;">
 			<canvas id="draw" height="200" width="200"></canvas>
@@ -203,5 +224,10 @@
 		   </div>
 	<div style="clear:both"></div>
 	</div>
+	<br>
+	  <div class="progress align-center">
+		<div class="progress-bar align-center" style="width: 30%; ">Completed</div> <!--Width holds the percentage Completed-->
+	  </div>
+	  <br/>
 </body>
 </html>
