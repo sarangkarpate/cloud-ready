@@ -5,6 +5,7 @@ $( document ).ready(function() {
 	document.getElementById("question-4").style.display="none";
 	document.getElementById("question-5").style.display="none";
 	document.getElementById("question-6").style.display="none";
+	document.getElementById("question-7").style.display="none";
 	document.getElementById("score").style.display="none";
 });
 
@@ -24,8 +25,14 @@ function changeColor(divObj, question) {
 		document.getElementById("option-3-1").style.background="#53a7ea";
 		document.getElementById("option-3-2").style.background="#53a7ea";
 		document.getElementById("option-3-3").style.background="#53a7ea";
+	} else if (question === "question-4") {
+		document.getElementById("option-4-1").style.background="#53a7ea";
+		document.getElementById("option-4-2").style.background="#53a7ea";
+		document.getElementById("option-4-3").style.background="#53a7ea";
 	} else if (question === "question-5") {
-		
+		document.getElementById("option-5-1").style.background="#53a7ea";
+		document.getElementById("option-5-2").style.background="#53a7ea";
+		document.getElementById("option-5-3").style.background="#53a7ea";
 	} else if (question === "question-6") {
 		
 	}
@@ -37,53 +44,92 @@ function change(currentDivName, newDivName) {
 	
 	if(currentDivName === "question-1") {
 		if(document.getElementById("option-1-1").style.background === "rgb(204, 117, 101)") {
-			input.application.type = "Personal Productivity";
+			input.application.domain = "Banking";
 		} else if(document.getElementById("option-1-2").style.background === "rgb(204, 117, 101)") {
-			input.application.type = "Dependent on other services";
+			input.application.domain = "Medical";
 		} else if(document.getElementById("option-1-3").style.background === "rgb(204, 117, 101)") {
-			input.application.type = "Little/No dependency on other services";
+			input.application.domain = "Defence";
 		} else if(document.getElementById("option-1-4").style.background === "rgb(204, 117, 101)") {
-			input.application.type = "B2B/B2C";
+			input.application.domain = "E-Commerce";
 		} else if(document.getElementById("option-1-5").style.background === "rgb(204, 117, 101)") {
-			input.application.type = "Heavy Computing";
+			input.application.domain = "Social Media";
 		} else if(document.getElementById("option-1-6").style.background === "rgb(204, 117, 101)") {
-			input.application.type = "Mission Critical";
+			input.application.domain = "Education";
 		} else if(document.getElementById("option-1-7").style.background === "rgb(204, 117, 101)") {
-			input.application.type = "Seurity/Regulatory";
-		}
-		if(document.getElementById("r1").checked) {
-			input.application.manualInstallation = true;
-		} else if(document.getElementById("r2").checked) {
-			input.application.manualInstallation = false;
+			input.application.domain = "Messaging Platform";
+		} else if(document.getElementById("option-1-8").style.background === "rgb(204, 117, 101)") {
+			input.application.domain = "Technological";
 		}
 	} else if(currentDivName === "question-2") {
-		
+		if(document.getElementById("r1").checked) {
+			input.application.B2BorB2C = "B2B";
+		} else if(document.getElementById("r2").checked) {
+			input.application.B2BorB2C = "B2C";
+		}
+		if(document.getElementById("r19").checked) {
+			input.application.missionCritical = true;
+		} else if(document.getElementById("r20").checked) {
+			input.application.missionCritical = false;
+		}
+		if(document.getElementById("r21").checked) {
+			input.application.regulatoryRestriction = true;
+		} else if(document.getElementById("r22").checked) {
+			input.application.regulatoryRestriction = false;
+		}
+		if(document.getElementById("r23").checked) {
+			input.application.manualInstallation = true;
+		} else if(document.getElementById("r24").checked) {
+			input.application.manualInstallation = false;
+		}
 	} else if(currentDivName === "question-3") {
 		if(document.getElementById("option-3-1").style.background === "rgb(204, 117, 101)") {
-			input.lifecycle = "Early";
+			input.users = 500;
 		} else if(document.getElementById("option-3-2").style.background === "rgb(204, 117, 101)") {
-			input.lifecycle = "Stable";
+			input.users = 5000;
 		} else if(document.getElementById("option-3-3").style.background === "rgb(204, 117, 101)") {
-			input.lifecycle = "Near to closure";
+			input.users = 15000;
 		}
 	} else if(currentDivName === "question-4") {
+		if(document.getElementById("option-4-1").style.background === "rgb(204, 117, 101)") {
+			input.lifecycle = "High";
+		} else if(document.getElementById("option-4-2").style.background === "rgb(204, 117, 101)") {
+			input.lifecycle = "Medium";
+		} else if(document.getElementById("option-4-3").style.background === "rgb(204, 117, 101)") {
+			input.lifecycle = "Low";
+		}
+	} else if(currentDivName === "question-5") {
 		if(document.getElementById("r3").checked) {
 			input.externalDependencies.licensedProducts = true;
 		} else if(document.getElementById("r4").checked) {
 			input.externalDependencies.licensedProducts = false;
 		}
-		input.externalDependencies.os = document.getElementById("os").value;
-		input.externalDependencies.database = document.getElementById("db").value;
+		if(document.getElementById("option-5-1").style.background === "rgb(204, 117, 101)") {
+			input.externalDependencies.os = "Windows";
+		} else if(document.getElementById("option-5-2").style.background === "rgb(204, 117, 101)") {
+			input.externalDependencies.os = "Linux";
+		} else if(document.getElementById("option-5-3").style.background === "rgb(204, 117, 101)") {
+			input.externalDependencies.os = "Other";
+		}
 		if(document.getElementById("r5").checked) {
 			input.externalDependencies.multipleDatabases = true;
 		} else if(document.getElementById("r6").checked) {
 			input.externalDependencies.multipleDatabases = false;
 		}
-	} else if(currentDivName === "question-5") {
+	} else if(currentDivName === "question-6") {
 		if(document.getElementById("r7").checked) {
-			input.technicalAspects.resources = "Shared";
+			input.technicalAspects.resources = false;
 		} else if(document.getElementById("r8").checked) {
-			input.technicalAspects.resources = "Dedicated";
+			input.technicalAspects.resources = true;
+		}
+		input.technicalAspects.storage.min = document.getElementById("minStorage").value;
+		input.technicalAspects.storage.max = document.getElementById("maxStorage").value;
+		storageUnit = $( "#storageUnit" ).val();
+		if(storageUnit == 0) {
+			input.technicalAspects.storage.unit = "MB";
+		} else if(storageUnit == 1) {
+			input.technicalAspects.storage.unit = "GB";
+		} else if(storageUnit == 2) {
+			input.technicalAspects.storage.unit = "TB";
 		}
 		if(document.getElementById("r9").checked) {
 			input.technicalAspects.sessionManagement = true;
@@ -105,11 +151,18 @@ function change(currentDivName, newDivName) {
 		} else if(document.getElementById("r16").checked) {
 			input.technicalAspects.localFileSystem = false;
 		}
-	} else if(currentDivName === "question-6") {
-		if(document.getElementById("r17").checked) {
-			input.cost.geographicalAvailability = true;
-		} else if(document.getElementById("r18").checked) {
-			input.cost.geographicalAvailability = false;
+	} else if(currentDivName === "question-7") {
+		input.cost.budget.min = document.getElementById("minBudget").value;
+		input.cost.budget.max = document.getElementById("maxBudget").value;
+		currencyUnit = $( "#currencyUnit" ).val();
+		if(currencyUnit == 0) {
+			input.cost.budget.unit = "INR";
+		} else if(currencyUnit == 1) {
+			input.cost.budget.unit = "Pound";
+		} else if(currencyUnit == 2) {
+			input.cost.budget.unit = "Dollar";
+		} else if(currencyUnit == 3) {
+			input.cost.budget.unit = "Yen";
 		}
 	}
 	
@@ -171,7 +224,14 @@ function PercentAnimation(ctx, percent) {
     };
 
     this.setLineStyles = function() {
-		ctx.strokeStyle = 'rgb(0, 128, 128)';
+		//ctx.strokeStyle = 'rgb(0, 128, 128)';
+		if(this.percent < 31) {
+    		ctx.strokeStyle = "#FF0000";
+    	} else if(this.percent < 70) {
+    		ctx.strokeStyle = "#D9A200";
+    	} else {
+			ctx.strokeStyle = "#007300";
+    	}
         ctx.lineWidth = 20;
     };
 
@@ -189,7 +249,7 @@ function PercentAnimation(ctx, percent) {
 
     this.drawText = function() {
     	if(this.percent < 31) {
-    		ctx.fillStyle = "#730000";
+    		ctx.fillStyle = "#FF0000";
     	} else if(this.percent < 70) {
     		ctx.fillStyle = "#D9A200";
     	} else {
@@ -258,7 +318,23 @@ function calculatePercentage(){
 			break;
 	}
 
-	score = score + assignScoreOnPriority(input.application.dependency) + assignScoreOnPriority(input.application.computing) + assignScoreOnPriority(input.application.missionCritical) + assignScoreOnPriority(input.application.regulatoryRestriction) + assignScoreOnPriority(input.application.security) + assignScoreOnPriority(input.application.manualInstallation) + assignScoreOnScalePriority(input.users) + assignScoreOnPriority(input.lifecycle) + assignScoreOnPriority(input.externalDependencies.licensedProducts) + assignScoreOnPriority(input.externalDependencies.multipleDatabases) + assignScoreOnPriority(input.technicalAspects.resources) + assignScoreOnPriority(input.technicalAspects.sessionManagement) + assignScoreOnPriority(input.technicalAspects.networkArchitecture) + assignScoreOnPriority(input.technicalAspects.parallelProcessing) + assignScoreOnPriority(input.technicalAspects.localFileSystem) + assignScoreOnPriority(input.cost.geographicalAvailability);
+	score = score 
+			+ assignScoreOnPriority(input.application.dependency) 
+			+ assignScoreOnPriority(input.application.computing) 
+			+ assignScoreOnPriority(input.application.missionCritical) 
+			+ assignScoreOnPriority(input.application.regulatoryRestriction) 
+			+ assignScoreOnPriority(input.application.security) 
+			+ assignScoreOnPriority(input.application.manualInstallation) 
+			+ assignScoreOnScalePriority(input.users) 
+			+ assignScoreOnPriority(input.lifecycle) 
+			+ assignScoreOnPriority(input.externalDependencies.licensedProducts) 
+			+ assignScoreOnPriority(input.externalDependencies.multipleDatabases) 
+			+ assignScoreOnPriority(input.technicalAspects.resources) 
+			+ assignScoreOnPriority(input.technicalAspects.sessionManagement) 
+			+ assignScoreOnPriority(input.technicalAspects.networkArchitecture) 
+			+ assignScoreOnPriority(input.technicalAspects.parallelProcessing) 
+			+ assignScoreOnPriority(input.technicalAspects.localFileSystem) 
+			+ assignScoreOnPriority(input.cost.geographicalAvailability);
 
 	return (score * 100 / 1700);
 }
@@ -317,15 +393,21 @@ input.externalDependencies.os = "";
 input.externalDependencies.multipleDatabases = false;
 input.technicalAspects = new Object();
 input.technicalAspects.resources = "";	//STOI
-input.technicalAspects.storage = "";
+input.technicalAspects.storage = new Object();
+input.technicalAspects.storage.min = "";
+input.technicalAspects.storage.max = "";
+input.technicalAspects.storage.unit = "";
 input.technicalAspects.sessionManagement = false;
 input.technicalAspects.networkArchitecture = false;
 input.technicalAspects.parallelProcessing = false;
 input.technicalAspects.localFileSystem = false;
 input.technicalAspects.userScalibility = ""; 
 input.cost = new Object();
-input.cost.budget = "";
-input.cost.geographicalAvailability = false;
+input.cost.budget = new Object();
+input.cost.budget.min = "";
+input.cost.budget.max = "";
+input.cost.budget.unit = "";
+input.cost.geographicalAvailability = "";	//STOI
 input.priority = new Object();
 input.priority.technologicalOptimizations = 0;
 input.priority.cost = 0;
