@@ -339,3 +339,43 @@ input[type="text"].focus {
 #currencyUnit {
 	margin-top: 10px;
 }
+
+#dependency-slider {
+    height: 15px;
+    width: 300px;
+	margin-left: 50px;
+}
+
+#dependency {
+	margin-left: 400px;
+}
+
+#computing-slider {
+    height: 15px;
+    width: 300px;
+	margin-left: 50px;
+}
+
+#computing {
+	margin-left: 400px;
+}
+
+#security-slider {
+    height: 15px;
+    width: 300px;
+	margin-left: 50px;
+}
+
+#security {
+	margin-left: 400px;
+}
+
+#geo-slider {
+    height: 15px;
+    width: 300px;
+	margin-left: 50px;
+}
+
+#geo {
+	margin-left: 400px;
+}
