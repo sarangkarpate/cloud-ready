@@ -348,6 +348,7 @@ input[type="text"].focus {
 
 #dependency {
 	margin-left: 400px;
+	text-align: center;
 }
 
 #computing-slider {
@@ -357,7 +358,8 @@ input[type="text"].focus {
 }
 
 #computing {
-	margin-left: 400px;
+	margin-left: 400px;	
+	text-align: center;
 }
 
 #security-slider {
@@ -367,7 +369,8 @@ input[type="text"].focus {
 }
 
 #security {
-	margin-left: 400px;
+	margin-left: 400px;	
+	text-align: center;
 }
 
 #geo-slider {
@@ -378,4 +381,5 @@ input[type="text"].focus {
 
 #geo {
 	margin-left: 400px;
+	text-align: center;
 }
