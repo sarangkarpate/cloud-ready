@@ -3,6 +3,7 @@
 <head>
     <title>Cloud Ready</title>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/flat-ui.css" />
 	<link rel="shortcut icon" href="img/favicon.ico">
@@ -71,6 +72,9 @@
 			Let's discuss some details about your application!
 		</div>	
 		<h6>a) Rate the dependency of your application on other applications/services:</h6>
+		<div id="dependency-slider">
+			<input type="text" id="dependency" value="Low" readonly/>
+		</div>
 		<h6>b) Select type of application:</h6>
 		<label for="r1">
 			<input type="radio" value="r1" name="type" id="r1"> <span>B2B</span>
@@ -79,6 +83,9 @@
 			<input type="radio" value="r2" name="type" id="r2"> <span>B2C</span>
 		</label>
 		<h6>c) What are your computing requirements?</h6>
+		<div id="computing-slider">
+			<input type="text" id="computing" value="Low" readonly/>
+		</div>
 		<h6>d) Is your application mission critical?</h6>
 		<label for="r19">
 			<input type="radio" value="r19" name="mission" id="r19"> <span>Yes</span>
@@ -94,6 +101,9 @@
 			<input type="radio" value="r22" name="regulatory" id="r22"> <span>No</span>
 		</label>
 		<h6>f) Describe your security requirement:</h6>
+		<div id="security-slider">
+			<input type="text" id="security" value="Low" readonly/>
+		</div>
 		<h6>g) Is manual installation of your application on server required?</h6>
 		<label for="r23">
 			<input type="radio" value="r23" name="manual" id="r23"> <span>Yes</span>
@@ -258,7 +268,10 @@
             <option value="2">Dollar</option>
 			<option value="3">Yen</option>
         </select>
-		<h6>b) Is geographical availability required?</h6>
+		<h6>b) Select geographical availability required:</h6>
+		<div id="geo-slider">
+			<input type="text" id="geo" value="Local" readonly/>
+		</div>
 		<button class="prev" type="button" value="Previous" onclick="change('question-7','question-6')"><img src="images/previous.png" width="18" height="18" alt=""/>Previous</button>
 		<button class="next" type="button" value="Next" onclick="change('question-7','score')"><img src="images/next.png" width="18" height="18" alt=""/>Next</button>
 	</div>

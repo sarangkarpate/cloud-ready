@@ -19,6 +19,7 @@ function changeColor(divObj, question) {
 		document.getElementById("option-1-5").style.background="#53a7ea";
 		document.getElementById("option-1-6").style.background="#53a7ea";
 		document.getElementById("option-1-7").style.background="#53a7ea";
+		document.getElementById("option-1-8").style.background="#53a7ea";
 	} else if (question === "question-2") {
 		
 	} else if (question === "question-3") {
@@ -420,3 +421,95 @@ var output = new Object();
 output.Alpha
 output.Beta
 output.Gamma
+
+$(function() {
+    var valMap = [1, 25, 50, 100];
+	$( "#dependency-slider" ).css('background', '#777');
+	$( "#dependency-slider .ui-slider-range" ).css('background', '#777');
+    $("#dependency-slider").slider({
+        min: 1,
+        max: valMap.length - 1,
+        value: 0,
+        slide: function(event, ui) { 
+			if(valMap[ui.value] == 25) {
+				$("#dependency").val("Low"); 
+				input.application.dependency = "Low";
+			} else if(valMap[ui.value] == 50) {
+				$("#dependency").val("Medium");      
+				input.application.dependency = "Medium";				
+			} else if(valMap[ui.value] == 100) {
+				$("#dependency").val("High"); 
+				input.application.dependency = "High";
+			}
+        }       
+    });
+});
+
+$(function() {
+    var valMap = [1, 25, 50, 100];
+	$( "#computing-slider" ).css('background', '#777');
+	$( "#computing-slider .ui-slider-range" ).css('background', '#777');
+    $("#computing-slider").slider({
+        min: 1,
+        max: valMap.length - 1,
+        value: 0,
+        slide: function(event, ui) { 
+			if(valMap[ui.value] == 25) {
+				$("#computing").val("Low"); 
+				input.application.computing = "Low";
+			} else if(valMap[ui.value] == 50) {
+				$("#computing").val("Medium");      
+				input.application.computing = "Medium";				
+			} else if(valMap[ui.value] == 100) {
+				$("#computing").val("High"); 
+				input.application.computing = "High";
+			}
+        }       
+    });
+});
+
+$(function() {
+    var valMap = [1, 25, 50, 100];
+	$( "#security-slider" ).css('background', '#777');
+	$( "#security-slider .ui-slider-range" ).css('background', '#777');
+    $("#security-slider").slider({
+        min: 1,
+        max: valMap.length - 1,
+        value: 0,
+        slide: function(event, ui) { 
+			if(valMap[ui.value] == 25) {
+				$("#security").val("Low"); 
+				input.application.security = "Low";
+			} else if(valMap[ui.value] == 50) {
+				$("#security").val("Medium");      
+				input.application.security = "Medium";				
+			} else if(valMap[ui.value] == 100) {
+				$("#security").val("High"); 
+				input.application.security = "High";
+			}
+        }       
+    });
+});
+
+$(function() {
+    var valMap = [1, 25, 50, 100];
+	$( "#geo-slider" ).css('background', '#777');
+	$( "#geo-slider .ui-slider-range" ).css('background', '#777');
+    $("#geo-slider").slider({
+        min: 1,
+        max: valMap.length - 1,
+        value: 0,
+        slide: function(event, ui) { 
+			if(valMap[ui.value] == 25) {
+				$("#geo").val("Local"); 
+				input.cost.geographicalAvailability = "Local";
+			} else if(valMap[ui.value] == 50) {
+				$("#geo").val("Country");      
+				input.cost.geographicalAvailability = "Country";				
+			} else if(valMap[ui.value] == 100) {
+				$("#geo").val("Global"); 
+				input.cost.geographicalAvailability = "Global";
+			}
+        }       
+    });
+});
