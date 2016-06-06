@@ -383,3 +383,29 @@ input[type="text"].focus {
 	margin-left: 400px;
 	text-align: center;
 }
+
+#sortable { 
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0; 
+	width: 60%; 
+	margin-left: 300px;
+	margin-top: 50px;
+}
+
+#sortable li { 
+	margin: 0 3px 3px 3px; 
+	padding: 0.4em; 
+	padding-left: 1.5em; 
+	font-size: 1.4em; 
+	height: 18px; 
+	background-color: #53a7ea;
+	padding-bottom: 20px;
+	margin-bottom: 10px;
+	color: #fff;
+}
+
+#sortable li span { 
+	position: absolute; 
+	margin-left: -1.3em; 
+}
