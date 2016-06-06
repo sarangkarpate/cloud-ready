@@ -6,6 +6,7 @@ $( document ).ready(function() {
 	document.getElementById("question-5").style.display="none";
 	document.getElementById("question-6").style.display="none";
 	document.getElementById("question-7").style.display="none";
+	document.getElementById("priority").style.display="none";
 	document.getElementById("score").style.display="none";
 });
 
@@ -165,6 +166,13 @@ function change(currentDivName, newDivName) {
 		} else if(currencyUnit == 3) {
 			input.cost.budget.unit = "Yen";
 		}
+	} else if(currentDivName === "priority") {
+		var idsInOrder = $("#sortable").sortable("toArray");
+		input.priority.technologicalOptimizations = idsInOrder.indexOf("priorityTech") + 1;
+		input.priority.cost = idsInOrder.indexOf("priorityCost") + 1;
+		input.priority.easeOfIntegration = idsInOrder.indexOf("priorityIntegration") + 1;
+		input.priority.popularCloudTechnology = idsInOrder.indexOf("priorityPopular") + 1;
+		input.priority.security = idsInOrder.indexOf("prioritySecurity") + 1;
 	}
 	
 	var currentDiv = $('#' + currentDivName);
@@ -513,3 +521,8 @@ $(function() {
         }       
     });
 });
+
+$(function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+  });
