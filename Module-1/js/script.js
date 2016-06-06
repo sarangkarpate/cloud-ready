@@ -173,13 +173,24 @@ function change(currentDivName, newDivName) {
 		input.priority.easeOfIntegration = idsInOrder.indexOf("priorityIntegration") + 1;
 		input.priority.popularCloudTechnology = idsInOrder.indexOf("priorityPopular") + 1;
 		input.priority.security = idsInOrder.indexOf("prioritySecurity") + 1;
-	}
+	} 
 	
 	var currentDiv = $('#' + currentDivName);
 	var newDiv = $('#' + newDivName);
 	$(currentDiv).fadeOut("slow", function() {
 		$(newDiv).fadeIn("slow");
 	});
+	if(newDivName === "score") {
+		document.getElementById("cloud-heading").style.visibility = "hidden";
+		document.getElementById("cloud-1").style.visibility = "hidden";
+		document.getElementById("cloud-2").style.visibility = "hidden";
+		document.getElementById("cloud-3").style.visibility = "hidden";
+		document.getElementById("plan").style.visibility = "hidden";
+		document.getElementById("plan-1").style.visibility = "hidden";
+		document.getElementById("plan-2").style.visibility = "hidden";
+		document.getElementById("plan-3").style.visibility = "hidden";
+		document.getElementById("finalButton").style.visibility = "visible";
+	}
 	
 }
 
@@ -356,14 +367,17 @@ function initText(percentage) {
 	if(this.percent < 31) {
     		div.innerHTML = "Cloud-Ready score is <strong>Low</strong>.<br>Your Application is <strong>Cloud Averse</strong>";
     		div.style.color = "red";
+			div2.style.color = "red";
     		div2.innerHTML = "Moving / Building your application on a cloud platform is not very feasible. Please consider other options";
     	} else if(this.percent < 70) {
     		div.innerHTML = "Cloud-Ready score is <strong>Medium</strong>.<br>Your Application is <strong>Cloud Neutral</strong>";
     		div.style.color = "#D9A200";
+			div2.style.color = "#D9A200";
     		div2.innerHTML = "The pros of moving / developing your application to the Cloud are comparable if not more than the cons."
     	} else {
 			div.innerHTML = "Cloud-Ready score is <strong>High</strong>.<br>Your Application is <strong>Cloud Ready</strong>";
     		div.style.color = "green";
+			div2.style.color = "green";
     		div2.innerHTML = "Your application is ideal for a Cloud Platform";
     	}
 }
@@ -379,6 +393,8 @@ function showPercentage() {
 	anim.startAnimation();
 
 	var s = initText(percentage);
+	document.getElementById("finalButton").style.visibility = "hidden";
+	getCloudNames();
 };
 
 
@@ -525,4 +541,169 @@ $(function() {
 $(function() {
     $( "#sortable" ).sortable();
     $( "#sortable" ).disableSelection();
+	$("#plan-1").mouseenter(function() {
+		$("#plan-1").addClass("most-popular");
+	});
+	$("#plan-1").mouseleave(function() {
+		$("#plan-1").removeClass("most-popular");
+	});
+	$("#plan-2").mouseenter(function() {
+		$("#plan-2").addClass("most-popular");
+	});
+	$("#plan-2").mouseleave(function() {
+		$("#plan-2").removeClass("most-popular");
+	});
+	$("#plan-3").mouseenter(function() {
+		$("#plan-3").addClass("most-popular");
+	});
+	$("#plan-3").mouseleave(function() {
+		$("#plan-3").removeClass("most-popular");
+	});
   });
+  
+function getCloudNames(){
+	$.ajax({
+		url: 'https://api.mlab.com/api/1/databases/clouddb/collections/cloudproviders?apiKey=pt_zsbc141xcEXJHM_9WdIAi5qi4yBfN'
+	}).done(function(data){
+		var i = 1;
+		document.getElementById("cloud-heading").style.visibility = "visible";
+		document.getElementById("cloud-1").style.visibility = "visible";
+		document.getElementById("cloud-2").style.visibility = "visible";
+		document.getElementById("cloud-3").style.visibility = "visible";
+		document.getElementById("plan").style.visibility = "visible";
+		document.getElementById("plan-1").style.visibility = "visible";
+		document.getElementById("plan-2").style.visibility = "visible";
+		document.getElementById("plan-3").style.visibility = "visible";
+		$.each(data,function(key,data){
+			document.getElementById("cloud-"+i).style.backgroundColor = "#cc7565";
+			document.getElementById("cloud-"+i).style.color = "#fff";
+			document.getElementById("cloud-"+i).style.marginLeft = "650px";
+			document.getElementById("cloud-"+i).style.padding = "10px";
+			document.getElementById("cloud-"+i).style.width = "200px";
+			document.getElementById("cloud-"+i).style.height = "30px";
+			document.getElementById("cloud-"+i).style.textAlign = "left";
+			document.getElementById("cloud-"+i).innerText = i + ".  " + data.name;
+			
+			// for filling table
+			document.getElementById("plan-" + i + "-heading").innerHTML = data.name + '<span id="plan-' + i + '-cost"></span>';
+			document.getElementById("plan-" + i + "-cost").innerHTML = "$" + data.costInDollar;
+			document.getElementById("plan-" + i + "-deployment").innerHTML = data.deploymentModels;
+			document.getElementById("plan-" + i + "-service").innerHTML = data.serviceModels;
+			document.getElementById("plan-" + i + "-os").innerHTML = data.OS;
+			document.getElementById("plan-" + i + "-ram").innerHTML = data.RAMinGB;
+			document.getElementById("plan-" + i + "-cpu").innerHTML = data.CPUcores;
+			if(data.autoScaling) {
+				document.getElementById("plan-" + i + "-scaling").innerHTML = "<span style='color: green;'>&#10004;</span>";
+			}
+			else {
+				document.getElementById("plan-" + i + "-scaling").innerHTML = "<span style='color: red;'>&#10006;</span>";
+			}
+			if(data.blockStorage) {
+				document.getElementById("plan-" + i + "-block").innerHTML = "<span style='color: green;'>&#10004;</span>";
+			}
+			else {
+				document.getElementById("plan-" + i + "-block").innerHTML = "<span style='color: red;'>&#10006;</span>";
+			}
+			if(data.cloudStorage) {
+				document.getElementById("plan-" + i + "-cloud").innerHTML = "<span style='color: green;'>&#10004;</span>";
+			}
+			else {
+				document.getElementById("plan-" + i + "-cloud").innerHTML = "<span style='color: red;'>&#10006;</span>";
+			}
+			if(data.byOS) {
+				document.getElementById("plan-" + i + "-byos").innerHTML = "<span style='color: green;'>&#10004;</span>";
+			}
+			else {
+				document.getElementById("plan-" + i + "-byos").innerHTML = "<span style='color: red;'>&#10006;</span>";
+			}
+			if(data.dbAsService) {
+				document.getElementById("plan-" + i + "-db").innerHTML = "<span style='color: green;'>&#10004;</span>";
+			}
+			else {
+				document.getElementById("plan-" + i + "-db").innerHTML = "<span style='color: red;'>&#10006;</span>";
+			}
+			if(data.disasterRecovery) {
+				document.getElementById("plan-" + i + "-disaster").innerHTML = "<span style='color: green;'>&#10004;</span>";
+			}
+			else {
+				document.getElementById("plan-" + i + "-disaster").innerHTML = "<span style='color: red;'>&#10006;</span>";
+			}
+			if(data.DNSmgmt) {
+				document.getElementById("plan-" + i + "-dns").innerHTML = "<span style='color: green;'>&#10004;</span>";
+			}
+			else {
+				document.getElementById("plan-" + i + "-dns").innerHTML = "<span style='color: red;'>&#10006;</span>";
+			}
+			if(data.fileStorage) {
+				document.getElementById("plan-" + i + "-file").innerHTML = "<span style='color: green;'>&#10004;</span>";
+			}
+			else {
+				document.getElementById("plan-" + i + "-file").innerHTML = "<span style='color: red;'>&#10006;</span>";
+			}
+			if(data.fireWall) {
+				document.getElementById("plan-" + i + "-firewall").innerHTML = "<span style='color: green;'>&#10004;</span>";
+			}
+			else {
+				document.getElementById("plan-" + i + "-firewall").innerHTML = "<span style='color: red;'>&#10006;</span>";
+			}
+			if(data.flexibleStorage) {
+				document.getElementById("plan-" + i + "-flexible").innerHTML = "<span style='color: green;'>&#10004;</span>";
+			}
+			else {
+				document.getElementById("plan-" + i + "-flexible").innerHTML = "<span style='color: red;'>&#10006;</span>";
+			}
+			if(data.IPmgmt) {
+				document.getElementById("plan-" + i + "-ip").innerHTML = "<span style='color: green;'>&#10004;</span>";
+			}
+			else {
+				document.getElementById("plan-" + i + "-ip").innerHTML = "<span style='color: red;'>&#10006;</span>";
+			}
+			if(data.loadBalancing) {
+				document.getElementById("plan-" + i + "-load").innerHTML = "<span style='color: green;'>&#10004;</span>";
+			}
+			else {
+				document.getElementById("plan-" + i + "-load").innerHTML = "<span style='color: red;'>&#10006;</span>";
+			}
+			if(data.msgingServices) {
+				document.getElementById("plan-" + i + "-messaging").innerHTML = "<span style='color: green;'>&#10004;</span>";
+			}
+			else {
+				document.getElementById("plan-" + i + "-messaging").innerHTML = "<span style='color: red;'>&#10006;</span>";
+			}
+			if(data.snapShot) {
+				document.getElementById("plan-" + i + "-snapshot").innerHTML = "<span style='color: green;'>&#10004;</span>";
+			}
+			else {
+				document.getElementById("plan-" + i + "-snapshot").innerHTML = "<span style='color: red;'>&#10006;</span>";
+			}
+			if(data.sysMonitoring) {
+				document.getElementById("plan-" + i + "-monitor").innerHTML = "<span style='color: green;'>&#10004;</span>";
+			}
+			else {
+				document.getElementById("plan-" + i + "-monitor").innerHTML = "<span style='color: red;'>&#10006;</span>";
+			}
+			if(data.VPNaccess) {
+				document.getElementById("plan-" + i + "-vpn").innerHTML = "<span style='color: green;'>&#10004;</span>";
+			}
+			else {
+				document.getElementById("plan-" + i + "-vpn").innerHTML = "<span style='color: red;'>&#10006;</span>";
+			}
+			document.getElementById("plan-" + i + "-rating").innerHTML = data.rating;
+			i++;
+		});
+		
+	});
+}
+
+function getClouds(){
+	$.ajax({
+		url: 'https://api.mlab.com/api/1/databases/clouddb/collections/cloudproviders?apiKey=pt_zsbc141xcEXJHM_9WdIAi5qi4yBfN'
+	}).done(function(data){
+		var i = 1;
+		$.each(data,function(key,data){
+			console.log(data.rating);
+
+		});
+	});
+}
+
