@@ -189,6 +189,7 @@ function change(currentDivName, newDivName) {
 		document.getElementById("plan-1").style.visibility = "hidden";
 		document.getElementById("plan-2").style.visibility = "hidden";
 		document.getElementById("plan-3").style.visibility = "hidden";
+		document.getElementById("compare-clouds").style.visibility = "hidden";
 		document.getElementById("finalButton").style.visibility = "visible";
 	}
 	
@@ -574,9 +575,10 @@ function getCloudNames(){
 		document.getElementById("plan-1").style.visibility = "visible";
 		document.getElementById("plan-2").style.visibility = "visible";
 		document.getElementById("plan-3").style.visibility = "visible";
+		document.getElementById("compare-clouds").style.visibility = "visible";
 		$.each(data,function(key,data){
-			document.getElementById("cloud-"+i).style.backgroundColor = "#cc7565";
-			document.getElementById("cloud-"+i).style.color = "#fff";
+			document.getElementById("cloud-"+i).style.backgroundColor = "#aaa";
+			document.getElementById("cloud-"+i).style.color = "#000";
 			document.getElementById("cloud-"+i).style.marginLeft = "650px";
 			document.getElementById("cloud-"+i).style.padding = "10px";
 			document.getElementById("cloud-"+i).style.width = "200px";
@@ -610,18 +612,6 @@ function getCloudNames(){
 			else {
 				document.getElementById("plan-" + i + "-cloud").innerHTML = "<span style='color: red;'>&#10006;</span>";
 			}
-			if(data.byOS) {
-				document.getElementById("plan-" + i + "-byos").innerHTML = "<span style='color: green;'>&#10004;</span>";
-			}
-			else {
-				document.getElementById("plan-" + i + "-byos").innerHTML = "<span style='color: red;'>&#10006;</span>";
-			}
-			if(data.dbAsService) {
-				document.getElementById("plan-" + i + "-db").innerHTML = "<span style='color: green;'>&#10004;</span>";
-			}
-			else {
-				document.getElementById("plan-" + i + "-db").innerHTML = "<span style='color: red;'>&#10006;</span>";
-			}
 			if(data.disasterRecovery) {
 				document.getElementById("plan-" + i + "-disaster").innerHTML = "<span style='color: green;'>&#10004;</span>";
 			}
@@ -633,12 +623,6 @@ function getCloudNames(){
 			}
 			else {
 				document.getElementById("plan-" + i + "-dns").innerHTML = "<span style='color: red;'>&#10006;</span>";
-			}
-			if(data.fileStorage) {
-				document.getElementById("plan-" + i + "-file").innerHTML = "<span style='color: green;'>&#10004;</span>";
-			}
-			else {
-				document.getElementById("plan-" + i + "-file").innerHTML = "<span style='color: red;'>&#10006;</span>";
 			}
 			if(data.fireWall) {
 				document.getElementById("plan-" + i + "-firewall").innerHTML = "<span style='color: green;'>&#10004;</span>";
@@ -695,15 +679,10 @@ function getCloudNames(){
 	});
 }
 
-function getClouds(){
-	$.ajax({
-		url: 'https://api.mlab.com/api/1/databases/clouddb/collections/cloudproviders?apiKey=pt_zsbc141xcEXJHM_9WdIAi5qi4yBfN'
-	}).done(function(data){
-		var i = 1;
-		$.each(data,function(key,data){
-			console.log(data.rating);
-
-		});
-	});
+function openNav() {
+    document.getElementById("compare").style.height = "100%";
 }
 
+function closeNav() {
+    document.getElementById("compare").style.height = "0%";
+}
