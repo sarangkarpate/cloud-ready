@@ -314,7 +314,7 @@ input[type="text"].focus {
 }
 
 /* Output */
-#finalButton {
+.finalButton {
     background-color: #008CBA; 
     border: none;
     color: white;
@@ -325,7 +325,7 @@ input[type="text"].focus {
     font-size: 16px;
 }
 
-#finalButton:hover {
+.finalButton:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
@@ -412,22 +412,21 @@ input[type="text"].focus {
 }
 
 #recommended {
-	background-color: #cc7565; 
-	color: #fff; 
+	color: #000; 
 	text-align: left; 
 	margin-left: 650px; 
 	width: 200px; 
 	padding: 10px;
 }
 
-#cloud-heading, #cloud-1, #cloud-2, #cloud-3, #plan, #plan-1, #plan-2, #plan-3 {
+#cloud-heading, #cloud-1, #cloud-2, #cloud-3, #plan, #plan-1, #plan-2, #plan-3, #compare-clouds {
 	visibility: hidden;
 }
 
 /* Output table */
 
 #pricing-table {
-	margin: 100px auto;
+	margin: 45px auto;
 	text-align: center;
 	width: 892px; /* total computed width = 222 x 3 + 226 */
 }
@@ -445,7 +444,7 @@ input[type="text"].focus {
 }
 
 #pricing-table #plan-heading {
-	font: 12px 'Lucida Sans', 'trebuchet MS', Arial, Helvetica;
+	font: 11px 'Lucida Sans', 'trebuchet MS', Arial, Helvetica;
 	text-shadow: 0 1px rgba(255,255,255,.8);        
 	background: #333;      
 	border: 1px solid #ddd;
@@ -617,4 +616,29 @@ input[type="text"].focus {
 	-moz-box-shadow: 0 0 3px rgba(0, 0, 0, .7) inset;
 	-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .7) inset;
 	box-shadow: 0 0 3px rgba(0, 0, 0, .7) inset; 
+}
+
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+.closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 30px !important;
+}
+
+#compare-clouds {
+	margin-left: 280px;
+	margin-top: 10px;
 }
