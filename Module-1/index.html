@@ -298,7 +298,7 @@
 		   <img src="images/1464681839_cmyk-03.png" alt="some_text">
 		   <br>
 		   <br>
-		   <button type="button" value="Show score" onclick="showPercentage()" id="finalButton"/>Show Score!</button>
+		   <button type="button" value="Show score" onclick="showPercentage()" id="finalButton" class="finalButton"/>Show Score!</button>
 	   </div>
 		
 		<p id="cloud-names">
@@ -306,115 +306,107 @@
 			<h6 id="cloud-1" class="recommended"></h6>
 			<h6 id="cloud-2" class="recommended"></h6>
 			<h6 id="cloud-3" class="recommended"></h6>
+			<button type="button" value="Compare clouds" onclick="openNav()" id="compare-clouds" class="finalButton"/>Compare Clouds!</button>
 		</p>
-		<div id="pricing-table" class="clear">
-			<div class="plan" id="plan">
-				<h3 id="plan-heading">Name<span id="plan-cost">Cost</span></h3>       
-				<ul>
-					<li id="plan-deployment"><b>Deployment Models </b></li>
-					<li id="plan-service"><b>Service Models </b></li>
-					<li id="plan-os"><b>OS </b></li>		
-					<li id="plan-ram"><b>RAM(GB) </b></li>
-					<li id="plan-cpu"><b>CPU Cores </b></li>
-					<li id="plan-scaling"><b>Auto-scaling </b></li>
-					<li id="plan-block"><b>Block Storage </b></li>
-					<li id="plan-cloud"><b>Cloud Storage </b></li>
-					<li id="plan-byos"><b>BYOS </b></li>
-					<li id="plan-db"><b>DB As Service </b></li>
-					<li id="plan-disaster"><b>Disaster Recovery </b></li>
-					<li id="plan-dns"><b>DNS Management </b></li>
-					<li id="plan-file"><b>File Storage </b></li>
-					<li id="plan-firewall"><b>Firewall </b></li>
-					<li id="plan-flexible"><b>Flexible Storage </b></li>
-					<li id="plan-ip"><b>IP Management </b></li>
-					<li id="plan-load"><b>Load Balancing </b></li>
-					<li id="plan-messaging"><b>Messaging Services </b></li>
-					<li id="plan-snapshot"><b>Snapshot </b></li>
-					<li id="plan-monitor"><b>System Monitoring </b></li>
-					<li id="plan-vpn"><b>VPN Access </b></li>
-					<li id="plan-rating"><b>Rating </b></li>
-				</ul> 
-			</div>
-			<div class="plan" id="plan-1">
-				<h3 id="plan-1-heading"><span id="plan-1-cost"></span></h3>       
-				<ul>
-					<li id="plan-1-deployment"></li>
-					<li id="plan-1-service"></li>
-					<li id="plan-1-os"></li>		
-					<li id="plan-1-ram"></li>
-					<li id="plan-1-cpu"></li>
-					<li id="plan-1-scaling"></li>
-					<li id="plan-1-block"></li>
-					<li id="plan-1-cloud"></li>
-					<li id="plan-1-byos"></li>
-					<li id="plan-1-db"></li>
-					<li id="plan-1-disaster"></li>
-					<li id="plan-1-dns"></li>
-					<li id="plan-1-file"></li>
-					<li id="plan-1-firewall"></li>
-					<li id="plan-1-flexible"></li>
-					<li id="plan-1-ip"></li>
-					<li id="plan-1-load"></li>
-					<li id="plan-1-messaging"></li>
-					<li id="plan-1-snapshot"></li>
-					<li id="plan-1-monitor"></li>
-					<li id="plan-1-vpn"></li>
-					<li id="plan-1-rating"></li>
-				</ul> 
-			</div>
-			<div class="plan" id="plan-2">
-				<h3 id="plan-2-heading"><span id="plan-2-cost"></span></h3>       
-				<ul>
-					<li id="plan-2-deployment"></li>
-					<li id="plan-2-service"></li>
-					<li id="plan-2-os"></li>		
-					<li id="plan-2-ram"></li>
-					<li id="plan-2-cpu"></li>
-					<li id="plan-2-scaling"></li>
-					<li id="plan-2-block"></li>
-					<li id="plan-2-cloud"></li>
-					<li id="plan-2-byos"></li>
-					<li id="plan-2-db"></li>
-					<li id="plan-2-disaster"></li>
-					<li id="plan-2-dns"></li>
-					<li id="plan-2-file"></li>
-					<li id="plan-2-firewall"></li>
-					<li id="plan-2-flexible"></li>
-					<li id="plan-2-ip"></li>
-					<li id="plan-2-load"></li>
-					<li id="plan-2-messaging"></li>
-					<li id="plan-2-snapshot"></li>
-					<li id="plan-2-monitor"></li>
-					<li id="plan-2-vpn"></li>
-					<li id="plan-2-rating"></li>
-				</ul> 
-			</div>
-			<div class="plan" id="plan-3">
-				<h3 id="plan-3-heading"><span id="plan-3-cost"></span></h3>       
-				<ul>
-					<li id="plan-3-deployment"></li>
-					<li id="plan-3-service"></li>
-					<li id="plan-3-os"></li>		
-					<li id="plan-3-ram"></li>
-					<li id="plan-3-cpu"></li>
-					<li id="plan-3-scaling"></li>
-					<li id="plan-3-block"></li>
-					<li id="plan-3-cloud"></li>
-					<li id="plan-3-byos"></li>
-					<li id="plan-3-db"></li>
-					<li id="plan-3-disaster"></li>
-					<li id="plan-3-dns"></li>
-					<li id="plan-3-file"></li>
-					<li id="plan-3-firewall"></li>
-					<li id="plan-3-flexible"></li>
-					<li id="plan-3-ip"></li>
-					<li id="plan-3-load"></li>
-					<li id="plan-3-messaging"></li>
-					<li id="plan-3-snapshot"></li>
-					<li id="plan-3-monitor"></li>
-					<li id="plan-3-vpn"></li>
-					<li id="plan-3-rating"></li>
-				</ul> 
+		<div id="compare" class="overlay">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#10006;</a>
+			<div id="pricing-table" class="clear">
+				<div class="plan" id="plan">
+					<h3 id="plan-heading">Name<span id="plan-cost">Cost</span></h3>       
+					<ul>
+						<li id="plan-deployment"><b>Deployment Models </b></li>
+						<li id="plan-service"><b>Service Models </b></li>
+						<li id="plan-os"><b>OS </b></li>		
+						<li id="plan-ram"><b>RAM(GB) </b></li>
+						<li id="plan-cpu"><b>CPU Cores </b></li>
+						<li id="plan-scaling"><b>Auto-scaling </b></li>
+						<li id="plan-block"><b>Block Storage </b></li>
+						<li id="plan-cloud"><b>Cloud Storage </b></li>
+						<li id="plan-disaster"><b>Disaster Recovery </b></li>
+						<li id="plan-dns"><b>DNS Management </b></li>
+						<li id="plan-firewall"><b>Firewall </b></li>
+						<li id="plan-flexible"><b>Flexible Storage </b></li>
+						<li id="plan-ip"><b>IP Management </b></li>
+						<li id="plan-load"><b>Load Balancing </b></li>
+						<li id="plan-messaging"><b>Messaging Services </b></li>
+						<li id="plan-snapshot"><b>Snapshot </b></li>
+						<li id="plan-monitor"><b>System Monitoring </b></li>
+						<li id="plan-vpn"><b>VPN Access </b></li>
+						<li id="plan-rating"><b>Rating </b></li>
+					</ul> 
+				</div>
+				<div class="plan" id="plan-1">
+					<h3 id="plan-1-heading"><span id="plan-1-cost"></span></h3>       
+					<ul>
+						<li id="plan-1-deployment"></li>
+						<li id="plan-1-service"></li>
+						<li id="plan-1-os"></li>		
+						<li id="plan-1-ram"></li>
+						<li id="plan-1-cpu"></li>
+						<li id="plan-1-scaling"></li>
+						<li id="plan-1-block"></li>
+						<li id="plan-1-cloud"></li>
+						<li id="plan-1-disaster"></li>
+						<li id="plan-1-dns"></li>
+						<li id="plan-1-firewall"></li>
+						<li id="plan-1-flexible"></li>
+						<li id="plan-1-ip"></li>
+						<li id="plan-1-load"></li>
+						<li id="plan-1-messaging"></li>
+						<li id="plan-1-snapshot"></li>
+						<li id="plan-1-monitor"></li>
+						<li id="plan-1-vpn"></li>
+						<li id="plan-1-rating"></li>
+					</ul> 
+				</div>
+				<div class="plan" id="plan-2">
+					<h3 id="plan-2-heading"><span id="plan-2-cost"></span></h3>       
+					<ul>
+						<li id="plan-2-deployment"></li>
+						<li id="plan-2-service"></li>
+						<li id="plan-2-os"></li>		
+						<li id="plan-2-ram"></li>
+						<li id="plan-2-cpu"></li>
+						<li id="plan-2-scaling"></li>
+						<li id="plan-2-block"></li>
+						<li id="plan-2-cloud"></li>
+						<li id="plan-2-disaster"></li>
+						<li id="plan-2-dns"></li>
+						<li id="plan-2-firewall"></li>
+						<li id="plan-2-flexible"></li>
+						<li id="plan-2-ip"></li>
+						<li id="plan-2-load"></li>
+						<li id="plan-2-messaging"></li>
+						<li id="plan-2-snapshot"></li>
+						<li id="plan-2-monitor"></li>
+						<li id="plan-2-vpn"></li>
+						<li id="plan-2-rating"></li>
+					</ul> 
+				</div>
+				<div class="plan" id="plan-3">
+					<h3 id="plan-3-heading"><span id="plan-3-cost"></span></h3>       
+					<ul>
+						<li id="plan-3-deployment"></li>
+						<li id="plan-3-service"></li>
+						<li id="plan-3-os"></li>		
+						<li id="plan-3-ram"></li>
+						<li id="plan-3-cpu"></li>
+						<li id="plan-3-scaling"></li>
+						<li id="plan-3-block"></li>
+						<li id="plan-3-cloud"></li>
+						<li id="plan-3-disaster"></li>
+						<li id="plan-3-dns"></li>
+						<li id="plan-3-firewall"></li>
+						<li id="plan-3-flexible"></li>
+						<li id="plan-3-ip"></li>
+						<li id="plan-3-load"></li>
+						<li id="plan-3-messaging"></li>
+						<li id="plan-3-snapshot"></li>
+						<li id="plan-3-monitor"></li>
+						<li id="plan-3-vpn"></li>
+						<li id="plan-3-rating"></li>
+					</ul> 
+				</div>
 			</div>
 		</div>
 		<div class = "clear"></div>
