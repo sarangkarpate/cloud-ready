@@ -1,5 +1,7 @@
 # Cloud-Ready
 
+![alt tag](https://raw.githubusercontent.com/sarangkarpate/cloud-ready/master/Module-1/img/favicon.ico)
+
 Web-app to figure out how 'Cloud-Ready' your application is.
 
 With the widespread use of Cloud Computing in the world today, a question of whether existing applications can leverage the use of this technology arises. Apart from this, whether an application is particularly suited for the Cloud infrastructure or not is also a key question for technical managers and cloud administrators alike.
